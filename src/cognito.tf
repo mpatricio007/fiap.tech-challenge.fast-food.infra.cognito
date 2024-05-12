@@ -1,11 +1,11 @@
 resource "aws_cognito_user_pool" "fast_food_user_pool" {
   name = "${var.projectName}"
-  username_attributes = ["CPF"] # Apenas CPF como atributo de nome de usuário
-  auto_verified_attributes = ["CPF"] # Apenas CPF como atributo verificado automaticamente
+  username_attributes = ["cpf"] # Apenas CPF como atributo de nome de usuário
+  auto_verified_attributes = ["cpf"] # Apenas CPF como atributo verificado automaticamente
 
   # Configuração de políticas para forçar verificação de CPF e não exigir senha
   password_policy {
-    minimum_length    = 0
+    minimum_length    = 6
     require_lowercase = false
     require_numbers   = false
     require_symbols   = false
@@ -15,7 +15,7 @@ resource "aws_cognito_user_pool" "fast_food_user_pool" {
   schema {
     attribute_data_type = "String"
     mutable             = false # Tornar imutável
-    name                = "CPF"
+    name                = "cpf"
     required            = true
     string_attribute_constraints {
       min_length = 11
