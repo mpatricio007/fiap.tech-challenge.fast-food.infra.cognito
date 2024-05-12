@@ -6,7 +6,7 @@ A infraestrutura é mantida com o [**_Terraform_**](https://www.terraform.io/) e
 
 ## Execução
 
-Após a execução dos [_Workflows_](https://github.com/leandrocamara/fiap.tech-challenge.fast-food.infra.k8s/actions) (GitHub Actions), uma pool de usuarios _user pool_ [**_Cognito_**](https://docs.aws.amazon.com/cognito/) (_Elastic Kubernetes Service_) é provisionado na _AWS_.
+Após a execução dos [_Workflows_](https://github.com/leandrocamara/fiap.tech-challenge.fast-food.infra.k8s/actions) (GitHub Actions), uma pool de usuarios _user pool_ [**_Cognito_**](https://docs.aws.amazon.com/cognito/) é provisionado na _AWS_.
 
 Há duas maneiras de executar e criar o _user pools_:
 
