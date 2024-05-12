@@ -1,11 +1,7 @@
-provider "aws" {
-  region = "us-east-1" 
-}
-
-resource "aws_cognito_user_pool" "example" {
-  name = "example-user-pool"
-  username_attributes = ["cpf"] # Apenas CPF como atributo de nome de usuário
-  auto_verified_attributes = ["cpf"] # Apenas CPF como atributo verificado automaticamente
+resource "aws_cognito_user_pool" "fast_food_user_pool" {
+  name = "${var.projectName}"
+  username_attributes = ["CPF"] # Apenas CPF como atributo de nome de usuário
+  auto_verified_attributes = ["CPF"] # Apenas CPF como atributo verificado automaticamente
 
   # Configuração de políticas para forçar verificação de CPF e não exigir senha
   password_policy {
@@ -19,7 +15,7 @@ resource "aws_cognito_user_pool" "example" {
   schema {
     attribute_data_type = "String"
     mutable             = false # Tornar imutável
-    name                = "cpf"
+    name                = "CPF"
     required            = true
     string_attribute_constraints {
       min_length = 11
@@ -29,5 +25,5 @@ resource "aws_cognito_user_pool" "example" {
 }
 
 output "user_pool_id" {
-  value = aws_cognito_user_pool.example.id
+  value = aws_cognito_user_pool.fast_food_user_pool.id
 }
