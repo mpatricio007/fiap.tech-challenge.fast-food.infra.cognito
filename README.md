@@ -6,13 +6,13 @@ A infraestrutura é mantida com o [**_Terraform_**](https://www.terraform.io/) e
 
 ## Execução
 
-Após a execução dos [_Workflows_](https://github.com/leandrocamara/fiap.tech-challenge.fast-food.infra.k8s/actions) (GitHub Actions), um _cluster_ [**_EKS_**](https://docs.aws.amazon.com/eks/) (_Elastic Kubernetes Service_) é provisionado na _AWS_.
+Após a execução dos [_Workflows_](https://github.com/leandrocamara/fiap.tech-challenge.fast-food.infra.k8s/actions) (GitHub Actions), uma pool de usuarios _user pool_ [**_Cognito_**](https://docs.aws.amazon.com/cognito/) (_Elastic Kubernetes Service_) é provisionado na _AWS_.
 
-Há duas maneiras de executar e criar o _cluster_:
+Há duas maneiras de executar e criar o _user pools_:
 
 1. Realizando um `push` na `main`, por meio de um `Merge Pull Request`;
 
-2. Executando o [_Manual Deployment_](https://github.com/leandrocamara/fiap.tech-challenge.fast-food.infra.k8s/actions/workflows/manual-deployment.yaml) (_Workflow_)
+2. Executando o [_Manual Deployment_](https://github.com/mpatricio007/fiap.tech-challenge.fast-food.infra.cognito/actions/workflows/manual-deployment.yaml) (_Workflow_)
 
     ![Manual Deployment](./docs/manual-deployment.png)
 
