@@ -1,7 +1,7 @@
 resource "aws_cognito_user_pool" "fast_food_user_pool" {
   name = "${var.projectName}"
   username_attributes = [] # Apenas CPF como atributo de nome de usuário  
-  auto_verified_attributes = []
+  auto_verified_attributes = [null]
   mfa_configuration        = "OFF"
 
   # Configuração de políticas para forçar verificação de CPF e não exigir senha
