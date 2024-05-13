@@ -41,8 +41,8 @@ resource "aws_cognito_user_pool_client" "fast_food_client" {
   supported_identity_providers = ["COGNITO"]
 
   # Configuração para desativar a verificação e confirmação assistida
-  prevent_user_existence_errors = "ENABLED"
-  explicit_auth_flows = ["ADMIN_NO_SRP_AUTH", "USER_PASSWORD_AUTH"]
+  #prevent_user_existence_errors = "ENABLED"
+  #explicit_auth_flows = ["ADMIN_NO_SRP_AUTH", "USER_PASSWORD_AUTH"]
 }
 
 output "user_pool_client_id" {
