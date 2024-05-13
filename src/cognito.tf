@@ -32,6 +32,9 @@ resource "aws_cognito_user_pool_client" "fast_food_client" {
   name = "fast_food_client"
   user_pool_id = aws_cognito_user_pool.fast_food_user_pool.id
 
+  # Configuração para gerar um segredo de cliente
+  generate_secret = true
+
   # Configurações opcionais
   allowed_oauth_flows_user_pool_client = true
   allowed_oauth_flows = ["code"]
