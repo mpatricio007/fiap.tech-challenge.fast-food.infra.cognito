@@ -33,8 +33,8 @@ resource "aws_cognito_user_pool_client" "fast_food_client" {
   generate_secret = true
 
   # Configurações opcionais
-  allowed_oauth_flows_user_pool_client = true
-  
+  allowed_oauth_flows_user_pool_client = true 
+
   allowed_oauth_flows = ["code", "implicit"]
   allowed_oauth_scopes = ["email", "openid", "profile"]
   callback_urls = ["https://example.com/callback"]
