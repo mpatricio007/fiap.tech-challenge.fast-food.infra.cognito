@@ -25,7 +25,6 @@ resource "aws_cognito_user_pool" "fast_food_user_pool" {
   }
 }
 
-
 resource "aws_cognito_user_pool_client" "fast_food_client" {
   name = "fast_food_client"
   user_pool_id = aws_cognito_user_pool.fast_food_user_pool.id
