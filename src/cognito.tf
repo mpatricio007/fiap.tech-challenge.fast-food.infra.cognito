@@ -4,8 +4,6 @@ resource "aws_cognito_user_pool" "fast_food_user_pool" {
   auto_verified_attributes = []
   mfa_configuration        = "OFF"
 
-
-
   # Configuração de políticas para forçar verificação de CPF e não exigir senha
   password_policy {
     minimum_length    = 6
@@ -49,9 +47,8 @@ resource "aws_cognito_user_pool_client" "fast_food_client" {
 
 
 resource "aws_cognito_user_pool_user" "example_user" {
+  name = "example_user"  
   depends_on  = [aws_cognito_user_pool.fast_food_user_pool]
-  
-  user_pool_id = aws_cognito_user_pool.fast_food_user_pool.id
   username     = "example_user"
   desired_password = "123456"
   # Atributos adicionais do usuário, se necessário
