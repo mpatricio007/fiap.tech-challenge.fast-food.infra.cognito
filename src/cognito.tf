@@ -17,7 +17,7 @@ resource "aws_cognito_user_pool" "fast_food_user_pool" {
     attribute_data_type = "String"
     mutable             = false # Tornar imutável
     name                = "cpf"
-    required            = true
+    required            = false
     string_attribute_constraints {
       min_length = 11
       max_length = 11
