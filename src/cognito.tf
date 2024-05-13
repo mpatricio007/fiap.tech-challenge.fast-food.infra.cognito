@@ -4,6 +4,8 @@ resource "aws_cognito_user_pool" "fast_food_user_pool" {
   auto_verified_attributes = []
   mfa_configuration        = "OFF"
 
+
+
   # Configuração de políticas para forçar verificação de CPF e não exigir senha
   password_policy {
     minimum_length    = 6
@@ -15,7 +17,7 @@ resource "aws_cognito_user_pool" "fast_food_user_pool" {
 
   schema {
     attribute_data_type = "String"
-    mutable             = false # Tornar imutável
+    mutable             = true # Tornar imutável
     name                = "cpf"
     required            = false
     string_attribute_constraints {
@@ -23,6 +25,27 @@ resource "aws_cognito_user_pool" "fast_food_user_pool" {
       max_length = 11
     }
   }
+}
+
+
+resource "aws_cognito_user_pool_client" "fast_food_client" {
+  name = "fast_food_client"
+  user_pool_id = aws_cognito_user_pool.fast_food_user_pool.id
+
+  # Configurações opcionais
+  allowed_oauth_flows_user_pool_client = true
+  allowed_oauth_flows = ["code"]
+  allowed_oauth_scopes = ["email", "openid", "profile"]
+  callback_urls = ["https://example.com/callback"]
+  logout_urls = ["https://example.com/logout"]
+  supported_identity_providers = ["COGNITO"]
+
+  # Configuração para desativar a verificação e confirmação assistida
+  prevent_user_existence_errors = "ENABLED"
+}
+
+output "user_pool_client_id" {
+  value = aws_cognito_user_pool_client.fast_food_client.id
 }
 
 output "user_pool_id" {
