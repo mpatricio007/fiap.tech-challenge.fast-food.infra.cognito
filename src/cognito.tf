@@ -2,7 +2,7 @@ resource "aws_cognito_user_pool" "fast_food_user_pool" {
   name = "${var.projectName}"
   username_attributes = [] 
   auto_verified_attributes = []
-  mfa_configuration = "OFF"
+  mfa_configuration   = "OFF"
 
   # Configuração de políticas para forçar verificação de CPF e não exigir senha
   password_policy {
@@ -33,8 +33,7 @@ resource "aws_cognito_user_pool_client" "fast_food_client" {
   generate_secret = true
 
   # Configurações opcionais
-  allowed_oauth_flows_user_pool_client = true 
-
+  allowed_oauth_flows_user_pool_client = true
   allowed_oauth_flows = ["code", "implicit"]
   allowed_oauth_scopes = ["email", "openid", "profile"]
   callback_urls = ["https://example.com/callback"]
